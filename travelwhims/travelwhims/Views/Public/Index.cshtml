@@ -1,0 +1,50 @@
+﻿@model List<travelwhims.Models.TWdatabase.Package>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<img src="~/images/public/p1.jpg" alt="Sample" style="object-fit:cover; margin-top:-75px;" width="1349" height="300" />
+
+
+
+
+<div style="margin-left:10px;">
+    <br />
+    <center><h2 style="font-family:'Times New Roman'; border:2px solid mediumseagreen; width:300px; padding:5px;"> Ongoing Packages</h2></center>
+     @{ var a = 0; }
+
+    @foreach (var pac in Model)
+    { 
+        if (++a> 4) { break; }
+       
+        <div class="gallery" width="600" height="400">
+            <a href="/Public/Package/@pac.id">
+                @if (pac.pac_thumbnail == null)
+                {
+                    <img src="~/images/public/noimage.png" alt="pac_thumbnail" sizes="600x400" width="600" height="400">
+
+                }
+                else
+                {
+                    <img src="~/images/packages/@pac.pac_thumbnail" alt="pac_thumbnail" sizes="600x400" width="600" height="400">
+                }
+
+            </a>
+            <div class="desc"><h5>@pac.pac_title </h5> <br /> @pac.pac_destinations</div>
+        </div>
+    }
+    
+    <a style="margin-top:150px; padding:15px; margin-left:25px;" class="btn btn-success" href="/Public/Packages">View All Packages</a>
+</div>
+<br>
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+﻿@model travelwhims.Models.TWdatabase.TravelAgency
+
+@{
+    ViewBag.Title = "TravelAgency";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+<center>
+
+
+
+    @if (Model.ta_dp == null)
+    {
+        <img src="~/images/public/noimage.png" alt="ta tp" style="object-fit:scale-down; margin-left:10px; padding:15px;" width="500" height="300">
+    }
+    else
+    {
+        <img src="~/images/travelagencies/@Model.ta_dp" alt="ta tp" style="object-fit:cover; margin-left:20px; padding:15px;" width="500" height="300">
+    }
+
+
+<div class="col" style="margin-left:50px; width:700px;">
+    <h1 style="color: Highlight;"><b> @Model.ta_name</b></h1>
+    @if (Model.ta_rating == "notrated")
+    {
+        <h4>Rating: Not Rated</h4>
+    }
+    else
+    {
+        <h4>Rating:   @Model.ta_rating out of 5</h4>
+    }
+    <p style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-style:italic;">"@Model.ta_bio "</p>
+    <h4>Mail :  @Model.ta_mail</h4>
+    <h4>Phone :  @Model.ta_phone</h4>
+    <h4>Office Address :  @Model.ta_officeaddress</h4>
+
+
+</div>
+
+
+
+</center>
+
+<br />
+<br />
+<div style="margin-left:50px;">
+
+
+    <h3 style="margin-left:20px;">Packages by the Agency : </h3>
+    <br />
+
+    @foreach (var pac in Model.Packages)
+    {
+        if (pac.pac_status != "inactive")
+        {
+            <div class="gallery" width="600" height="400">
+                <a href="/Public/Package/@pac.id">
+                    <img src="~/images/packages/@pac.pac_thumbnail" alt="pac_thumbnail" sizes="600x400" width="600" height="400">
+                </a>
+                <div class="desc"><h5>@pac.pac_title </h5> <br /> @pac.pac_destinations</div>
+            </div>
+        }
+
+    }
+
+</div>
+

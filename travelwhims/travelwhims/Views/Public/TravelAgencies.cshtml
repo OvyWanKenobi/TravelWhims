@@ -1,0 +1,45 @@
+﻿@model List<travelwhims.Models.TWdatabase.TravelAgency>
+
+@{
+    ViewBag.Title = "TravelAgencies";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<center>
+    <h2 style="font-family:'Times New Roman'; border:2px solid mediumseagreen; width:300px; padding:5px;">Travel Agencies</h2>
+</center>
+<table class="table table-hover" style=" width:1000px; margin-left: 100px;">
+       @foreach (var ta in Model) 
+       { 
+       
+           <tr class="clickable " style="cursor:pointer; " onclick="window.location = '/Public/TravelAgency/@ta.id'">
+               <td width="180">
+                   @if (ta.ta_dp == null)
+                   {
+                   <img src="~/images/public/noimage.png" alt="ta_dp" style="object-fit:cover;" width="150" height="150">
+                   }
+                   else
+                   {
+                       <img src="~/images/travelagencies/@ta.ta_dp" alt="ta_dp" style="object-fit:cover;" width="150" height="150">
+                   }
+                   </td>
+               <td>
+                   <h3><b>@ta.ta_name</b></h3>
+                   @if (ta.ta_rating == "notrated")
+                   {
+                       <h4>Rating: Not Rated</h4>
+                   }
+                   else
+                   {
+                       <h4>Rating:  @ta.ta_rating out of 5</h4>
+                   }
+
+                   <p style="font-style: italic;">Click to see more details...</p>
+
+               </td>
+
+            </tr>
+       
+       }
+
+</table>

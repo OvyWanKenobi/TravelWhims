@@ -1,0 +1,48 @@
+﻿@model List<travelwhims.Models.TWdatabase.Package>
+
+@{
+    ViewBag.Title = "Packages";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+
+<center><h2  style="font-family:'Times New Roman'; border:2px solid mediumseagreen; width:300px; padding:5px;" >Ongoing Packages</h2>
+   </center>
+<div>
+
+    <table class="table table-hover" style=" width:1000px; margin-left: 100px;
+" >
+        @foreach (var pac in Model)
+        {
+            <tr class="clickable " style="cursor:pointer; " onclick="window.location = '/Public/Package/@pac.id'">
+                <td width="350">
+                    @if (pac.pac_thumbnail == null)
+                    {
+                        <img src="~/images/public/noimage.png" alt="pac_thumbnail" style="object-fit:cover;" width="300" height="200">
+                    }
+                    else
+                    {
+                        <img src="~/images/packages/@pac.pac_thumbnail" alt="pac_thumbnail" style="object-fit:cover;" width="300" height="200">
+                    }
+
+                </td>
+                <td>
+                    <h3><b>@pac.pac_title</b></h3>
+                    <h4>Destination: @pac.pac_destinations</h4>
+                    <b>Price : @pac.pac_price</b><br>
+                    <b>Class : @pac.pac_class</b><br>
+                    <b>@pac.pac_tourdate.ToLongDateString()</b> to <b> @pac.pac_returndate.ToLongDateString() </b><br>
+                    <b>Agency: @pac.TravelAgency.ta_name</b><br>
+                    <p style="font-style: italic;">Click to see more details...</p>
+
+                </td>
+
+            </tr>
+        }
+
+
+    </table>
+
+
+    </div>
+

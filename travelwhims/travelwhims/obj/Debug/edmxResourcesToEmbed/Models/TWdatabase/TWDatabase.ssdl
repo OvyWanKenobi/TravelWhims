@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TWDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ad_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ad_mail" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Blogcomment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="blog_fk" Type="int" Nullable="false" />
+    <Property Name="blgcom_uid_fk" Type="int" Nullable="false" />
+    <Property Name="blgcom_comment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="blgcom_datetime" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Blogs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="blg_title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="blg_des" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="blg_img1" Type="nvarchar(max)" />
+    <Property Name="blg_img2" Type="nvarchar(max)" />
+    <Property Name="blg_img3" Type="nvarchar(max)" />
+    <Property Name="blg_img4" Type="nvarchar(max)" />
+    <Property Name="blg_img5" Type="nvarchar(max)" />
+    <Property Name="blg_user_fk" Type="int" Nullable="false" />
+    <Property Name="blg_datetime" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="blg_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerPackages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pac_id" Type="int" Nullable="false" />
+    <Property Name="cus_id" Type="int" Nullable="false" />
+    <Property Name="ta_id" Type="int" Nullable="false" />
+    <Property Name="pay_discount" Type="int" />
+    <Property Name="pay_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="c_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="c_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="c_phone" Type="int" Nullable="false" />
+    <Property Name="c_address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="c_dp" Type="nvarchar(max)" />
+    <Property Name="c_mail" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Managers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="m_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="m_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="m_mail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="m_dp" Type="nvarchar(max)" />
+    <Property Name="m_phone" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Packages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pac_title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pac_bio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pac_destinations" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pac_price" Type="int" Nullable="false" />
+    <Property Name="pac_tourdate" Type="date" Nullable="false" />
+    <Property Name="pac_prerequisite" Type="nvarchar(max)" />
+    <Property Name="pac_thumbnail" Type="nvarchar(max)" />
+    <Property Name="pac_returndate" Type="date" />
+    <Property Name="pac_class" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pac_category" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pac_ta_fk" Type="int" Nullable="false" />
+    <Property Name="pac_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cuspac_id_fk" Type="int" Nullable="false" />
+    <Property Name="pay_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pay_amount" Type="int" Nullable="false" />
+    <Property Name="pay_mfs" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pay_phone" Type="int" Nullable="false" />
+    <Property Name="pay_trxid" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pay_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TravelAgencies">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ta_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ta_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ta_rating" Type="nvarchar" MaxLength="50" />
+    <Property Name="ta_bio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ta_mail" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ta_phone" Type="int" Nullable="false" />
+    <Property Name="ta_dp" Type="nvarchar(max)" />
+    <Property Name="ta_officeaddress" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="u_password" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="u_type" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Blogcomment_Blogs">
+    <End Role="Blogs" Type="Self.Blogs" Multiplicity="1" />
+    <End Role="Blogcomment" Type="Self.Blogcomment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blogs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Blogcomment">
+        <PropertyRef Name="blog_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Blogcomment_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Blogcomment" Type="Self.Blogcomment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Blogcomment">
+        <PropertyRef Name="blgcom_uid_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Blogs_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Blogs" Type="Self.Blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Blogs">
+        <PropertyRef Name="blg_user_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerPackages_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="CustomerPackages" Type="Self.CustomerPackages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CustomerPackages">
+        <PropertyRef Name="cus_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerPackages_Packages">
+    <End Role="Packages" Type="Self.Packages" Multiplicity="1" />
+    <End Role="CustomerPackages" Type="Self.CustomerPackages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Packages">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CustomerPackages">
+        <PropertyRef Name="pac_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerPackages_TravelAgencies">
+    <End Role="TravelAgencies" Type="Self.TravelAgencies" Multiplicity="1" />
+    <End Role="CustomerPackages" Type="Self.CustomerPackages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelAgencies">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CustomerPackages">
+        <PropertyRef Name="ta_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Packages_TravelAgencies">
+    <End Role="TravelAgencies" Type="Self.TravelAgencies" Multiplicity="1" />
+    <End Role="Packages" Type="Self.Packages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelAgencies">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Packages">
+        <PropertyRef Name="pac_ta_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payments_CustomerPackages">
+    <End Role="CustomerPackages" Type="Self.CustomerPackages" Multiplicity="1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerPackages">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="cuspac_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="TWDatabaseModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blogcomment" EntityType="Self.Blogcomment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerPackages" EntityType="Self.CustomerPackages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Managers" EntityType="Self.Managers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Packages" EntityType="Self.Packages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TravelAgencies" EntityType="Self.TravelAgencies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Blogcomment_Blogs" Association="Self.FK_Blogcomment_Blogs">
+      <End Role="Blogs" EntitySet="Blogs" />
+      <End Role="Blogcomment" EntitySet="Blogcomment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Blogcomment_Users" Association="Self.FK_Blogcomment_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Blogcomment" EntitySet="Blogcomment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Blogs_Users" Association="Self.FK_Blogs_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Blogs" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerPackages_Customers" Association="Self.FK_CustomerPackages_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomerPackages" EntitySet="CustomerPackages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerPackages_Packages" Association="Self.FK_CustomerPackages_Packages">
+      <End Role="Packages" EntitySet="Packages" />
+      <End Role="CustomerPackages" EntitySet="CustomerPackages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerPackages_TravelAgencies" Association="Self.FK_CustomerPackages_TravelAgencies">
+      <End Role="TravelAgencies" EntitySet="TravelAgencies" />
+      <End Role="CustomerPackages" EntitySet="CustomerPackages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Packages_TravelAgencies" Association="Self.FK_Packages_TravelAgencies">
+      <End Role="TravelAgencies" EntitySet="TravelAgencies" />
+      <End Role="Packages" EntitySet="Packages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_CustomerPackages" Association="Self.FK_Payments_CustomerPackages">
+      <End Role="CustomerPackages" EntitySet="CustomerPackages" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

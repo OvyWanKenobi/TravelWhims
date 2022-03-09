@@ -1,0 +1,55 @@
+﻿@model travelwhims.Models.TWdatabase.Package
+
+@{
+    ViewBag.Title = "Package";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+
+
+<div >
+    <center>
+        @if (Model.pac_thumbnail == null)
+        {
+        <img src="~/images/public/noimage.png" alt="pac_thumbnail" style="object-fit:cover; padding:10px;" width="1200" height="400">
+        }
+        else
+        {
+            <img src="~/images/packages/@Model.pac_thumbnail" alt="pac_thumbnail" style="object-fit:cover; padding:10px;" width="1200" height="400">
+        }
+    </center>
+
+    <div class="row">
+
+
+        <div class="col-3" style="margin-left:100px; width:800px;">
+            <h1 style="color: Highlight"><b> @Model.pac_title</b></h1>
+            <p style="font-size:larger;">By: <a class="link-success" style="text-decoration-line:unset;" href="/Public/TravelAgency/@Model.pac_ta_fk"> @Model.TravelAgency.ta_name</a> (@Model.TravelAgency.ta_rating/5) </p>
+            <h3>Destination:  @Model.pac_destinations</h3>
+            <h4>From  @Model.pac_tourdate.ToLongDateString() to   @Model.pac_returndate.ToLongDateString() </h4>
+            <h4>Class :  @Model.pac_class</h4>
+            <h4>Price :  @Model.pac_price</h4>
+            <h5>Detail :  @Model.pac_bio</h5>
+            @if ((Model.pac_prerequisite) != null)
+            {
+
+                <h5>Pre-requisite :  @Model.pac_prerequisite</h5>
+            }
+
+
+        </div>
+        
+        <div class="col-3" style="width:400px; margin-top:100px;" >
+            <center>
+                <h4 style="width: 320px; border: solid mediumseagreen;  border-bottom-color: darkslategrey; border-width: 1px 10px 10px 1px; padding: 15px;">  <a class="btn btn-success" href="/Public/Login">Sign Up</a> <br /> NOW! <br />To Book Your Dream Destination</h4>
+            </center>
+            </div>
+
+
+    </div>
+
+
+
+
+</div>
+

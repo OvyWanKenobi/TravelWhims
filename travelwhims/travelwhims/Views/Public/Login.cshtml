@@ -1,0 +1,39 @@
+﻿
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+
+<center>
+    <div style="width:500px; margin-top:50px;">
+        <h2 style="color:forestgreen; margin-bottom: 40px;">Login</h2>
+ 
+
+        @if (TempData["msg"] != null)
+        {
+            <span class="label-danger">@TempData["msg"]</span>
+        }
+
+    <form class="form-floating" action="/Public/Login" method="post">
+        <div class="form-floating">
+
+            <input class="form-control" id="u_username" type="text" name="u_username" placeholder="Username">
+            <label style="margin-left:20px;" for="u_username">Username</label><br />
+
+        </div>
+        <div class="form-floating">
+            <input class="form-control" id="u_password" type="password" name="u_password" placeholder="Password">
+            <label style="margin-left:20px;" for="u_password">Password</label><br />
+
+            <input class="btn btn-success" type="submit" value="Login">
+        </div>
+
+    </form>
+    </div>
+</center>
+
+
+
+

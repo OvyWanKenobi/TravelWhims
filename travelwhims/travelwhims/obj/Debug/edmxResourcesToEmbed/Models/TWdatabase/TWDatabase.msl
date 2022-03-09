@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TWDatabaseModelStoreContainer" CdmEntityContainer="TWDatabaseEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="TWDatabaseModel.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad_name" ColumnName="ad_name" />
+          <ScalarProperty Name="ad_username" ColumnName="ad_username" />
+          <ScalarProperty Name="ad_mail" ColumnName="ad_mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogcomments">
+      <EntityTypeMapping TypeName="TWDatabaseModel.Blogcomment">
+        <MappingFragment StoreEntitySet="Blogcomment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="blog_fk" ColumnName="blog_fk" />
+          <ScalarProperty Name="blgcom_uid_fk" ColumnName="blgcom_uid_fk" />
+          <ScalarProperty Name="blgcom_comment" ColumnName="blgcom_comment" />
+          <ScalarProperty Name="blgcom_datetime" ColumnName="blgcom_datetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="TWDatabaseModel.Blog">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="blg_title" ColumnName="blg_title" />
+          <ScalarProperty Name="blg_des" ColumnName="blg_des" />
+          <ScalarProperty Name="blg_img1" ColumnName="blg_img1" />
+          <ScalarProperty Name="blg_img2" ColumnName="blg_img2" />
+          <ScalarProperty Name="blg_img3" ColumnName="blg_img3" />
+          <ScalarProperty Name="blg_img4" ColumnName="blg_img4" />
+          <ScalarProperty Name="blg_img5" ColumnName="blg_img5" />
+          <ScalarProperty Name="blg_user_fk" ColumnName="blg_user_fk" />
+          <ScalarProperty Name="blg_datetime" ColumnName="blg_datetime" />
+          <ScalarProperty Name="blg_status" ColumnName="blg_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerPackages">
+      <EntityTypeMapping TypeName="TWDatabaseModel.CustomerPackage">
+        <MappingFragment StoreEntitySet="CustomerPackages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pac_id" ColumnName="pac_id" />
+          <ScalarProperty Name="cus_id" ColumnName="cus_id" />
+          <ScalarProperty Name="ta_id" ColumnName="ta_id" />
+          <ScalarProperty Name="pay_discount" ColumnName="pay_discount" />
+          <ScalarProperty Name="pay_status" ColumnName="pay_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="TWDatabaseModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="c_name" ColumnName="c_name" />
+          <ScalarProperty Name="c_username" ColumnName="c_username" />
+          <ScalarProperty Name="c_phone" ColumnName="c_phone" />
+          <ScalarProperty Name="c_address" ColumnName="c_address" />
+          <ScalarProperty Name="c_dp" ColumnName="c_dp" />
+          <ScalarProperty Name="c_mail" ColumnName="c_mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Managers">
+      <EntityTypeMapping TypeName="TWDatabaseModel.Manager">
+        <MappingFragment StoreEntitySet="Managers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="m_name" ColumnName="m_name" />
+          <ScalarProperty Name="m_username" ColumnName="m_username" />
+          <ScalarProperty Name="m_mail" ColumnName="m_mail" />
+          <ScalarProperty Name="m_dp" ColumnName="m_dp" />
+          <ScalarProperty Name="m_phone" ColumnName="m_phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="TWDatabaseModel.Payment">
+        <MappingFragment StoreEntitySet="Payments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cuspac_id_fk" ColumnName="cuspac_id_fk" />
+          <ScalarProperty Name="pay_id" ColumnName="pay_id" />
+          <ScalarProperty Name="pay_amount" ColumnName="pay_amount" />
+          <ScalarProperty Name="pay_mfs" ColumnName="pay_mfs" />
+          <ScalarProperty Name="pay_phone" ColumnName="pay_phone" />
+          <ScalarProperty Name="pay_trxid" ColumnName="pay_trxid" />
+          <ScalarProperty Name="pay_status" ColumnName="pay_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TWDatabaseModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TWDatabaseModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="u_password" ColumnName="u_password" />
+          <ScalarProperty Name="u_type" ColumnName="u_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="TWDatabaseModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="TWDatabaseModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="TWDatabaseModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="TWDatabaseModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TWDatabaseModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="TWDatabaseModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TWDatabaseModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="TWDatabaseModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="TWDatabaseModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="TravelAgencies">
+      <EntityTypeMapping TypeName="TWDatabaseModel.TravelAgency">
+        <MappingFragment StoreEntitySet="TravelAgencies">
+          <ScalarProperty Name="ta_officeaddress" ColumnName="ta_officeaddress" />
+          <ScalarProperty Name="ta_dp" ColumnName="ta_dp" />
+          <ScalarProperty Name="ta_phone" ColumnName="ta_phone" />
+          <ScalarProperty Name="ta_mail" ColumnName="ta_mail" />
+          <ScalarProperty Name="ta_bio" ColumnName="ta_bio" />
+          <ScalarProperty Name="ta_rating" ColumnName="ta_rating" />
+          <ScalarProperty Name="ta_username" ColumnName="ta_username" />
+          <ScalarProperty Name="ta_name" ColumnName="ta_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="TWDatabaseModel.Package">
+        <MappingFragment StoreEntitySet="Packages">
+          <ScalarProperty Name="pac_status" ColumnName="pac_status" />
+          <ScalarProperty Name="pac_ta_fk" ColumnName="pac_ta_fk" />
+          <ScalarProperty Name="pac_category" ColumnName="pac_category" />
+          <ScalarProperty Name="pac_class" ColumnName="pac_class" />
+          <ScalarProperty Name="pac_returndate" ColumnName="pac_returndate" />
+          <ScalarProperty Name="pac_thumbnail" ColumnName="pac_thumbnail" />
+          <ScalarProperty Name="pac_prerequisite" ColumnName="pac_prerequisite" />
+          <ScalarProperty Name="pac_tourdate" ColumnName="pac_tourdate" />
+          <ScalarProperty Name="pac_price" ColumnName="pac_price" />
+          <ScalarProperty Name="pac_destinations" ColumnName="pac_destinations" />
+          <ScalarProperty Name="pac_bio" ColumnName="pac_bio" />
+          <ScalarProperty Name="pac_title" ColumnName="pac_title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
